@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+            <h3 class="alert alert-light border rounded"><center>Create Account</center></h3>
+            <form action="/signup" method="POST">
+
+                {% csrf_token %}
+
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+                {% endif %}
+                <!-- FIRSTNAME -->
+                <div class="form-group">
+                    <label for="">First Name</label>
+                    <input type="text" name="firstname" 
+                    id="" value="{{values.first_name}}" class="form-control" 
+                    placeholder="Your Name">
+                </div>
+
+                <!-- LASTNAME -->
+                <div class="form-group">
+                    <label for="">Last Name</label>
+                    <input type="text" name="lastname" 
+                    id="" value="{{values.last_name}}" class="form-control" 
+                    placeholder="Surname">
+                </div>
+
+                <!-- MOBILE -->
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input type="text" name="phone" 
+                    id="" value="{{values.phone}}" class="form-control" 
+                    placeholder="0123456789">
+                </div>
+
+                <!-- EMAIL -->
+                <div class="form-group">
+                    <label for="">E mail</label>
+                    <input required type="email" name="email" 
+                    id=""value="{{values.email}}" class="form-control" 
+                    placeholder="example@gmail.com">
+                </div>
+
+                <!-- PASSWORD -->
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input type="password" name="password" id="" class="form-control" placeholder="********">
+                </div>
+
+                                <!-- SUBMIT BUTTON -->
+                <div class="form-group">
+                    <input class="btn btn-sm btn-info" type="submit" value="Create Account">
+                </div>
+
+
+
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+
+{% endblock %}
